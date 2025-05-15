@@ -4,7 +4,7 @@
 # Requirements
 * GPU: NVIDIA GeForce RTX 2080 (8192 MB)
 * SAM-6D/readme 內有docker image
-* 進入docker和conda環境後，跟隨SAM-6D/prepare.sh安裝 ISM pretrained model即可，另外兩個用不到
+* 進入docker和conda環境後，跟隨SAM-6D/prepare.sh安裝 ISM pretrained model即可(可能需另外裝wget套件)，另外兩個用不到
 
 # Inference
 * Inference code: SAM-6D/Instance_Segmentation_Model/match_anything.py
