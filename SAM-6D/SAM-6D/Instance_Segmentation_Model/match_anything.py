@@ -213,12 +213,12 @@ def run_inference(segmentor_model, output_dir, template_img, rgb_path, stability
     detections.add_attribute("object_ids", torch.zeros_like(final_score))   
          
     detections.to_numpy()
-    save_path = f"{output_dir}/sam6d_results/{exp_name}/detection_ism"
+    save_path = f"{output_dir}/{exp_name}/detection_ism"
     detections.save_to_file(0, 0, 0, save_path, "Custom", return_results=False)
     detections = convert_npz_to_json(idx=0, list_npz_paths=[save_path+".npz"])
     save_json_bop23(save_path+".json", detections)
-    vis_img = visualize(rgb, detections, f"{output_dir}/sam6d_results/{exp_name}")
-    vis_img.save(f"{output_dir}/sam6d_results/{exp_name}/vis_match_anything.png")
+    vis_img = visualize(rgb, detections, f"{output_dir}/{exp_name}")
+    vis_img.save(f"{output_dir}/{exp_name}/vis_match_anything.png")
     vis_complet = time.time()
     print(f"完成視覺化: {vis_complet - match_complet:.6f}秒")
     print(f"完成全部流程: {vis_complet - start_time:.6f}秒")
@@ -247,7 +247,7 @@ if __name__ == "__main__":
     # parser.add_argument("--stability_score_thresh", default=0.97, type=float, help="stability_score_thresh of SAM")
     # args = parser.parse_args()
     args = load_config()
-    os.makedirs(f"{args.output_dir}/sam6d_results/{args.exp_name}", exist_ok=True)
+    os.makedirs(f"{args.output_dir}/{args.exp_name}", exist_ok=True)
     run_inference(
         args.segmentor_model, args.output_dir, args.template_img, args.rgb_path, 
         stability_score_thresh=args.stability_score_thresh,exp_name=args.exp_name,

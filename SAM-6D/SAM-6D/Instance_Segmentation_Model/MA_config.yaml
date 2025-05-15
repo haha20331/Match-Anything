@@ -1,8 +1,8 @@
-segmentor_model: fastsam
-rgb_path: /workspace/SAM-6D/SAM-6D/Instance_Segmentation_Model/Example/inputs/target_img/ele_rgbd_3.png
-template_img: /workspace/SAM-6D/SAM-6D/Instance_Segmentation_Model/Example/inputs/template/ele
-output_dir: /workspace/SAM-6D/SAM-6D/Instance_Segmentation_Model/Example/outputs
-exp_name: rgbd_ele
+segmentor_model: fastsam # 使用sam或是fastsam做分割
+rgb_path: /workspace/SAM-6D/SAM-6D/Instance_Segmentation_Model/Example/inputs/target_img/ele_rgbd_3.png # 目標場景的rgb圖
+template_img: /workspace/SAM-6D/SAM-6D/Instance_Segmentation_Model/Example/inputs/template/ele # matching object 的template，可包含多張
+output_dir: /workspace/SAM-6D/SAM-6D/Instance_Segmentation_Model/Example/outputs # output path
+exp_name: rgbd_ele # 實驗名稱，會作為資料夾名稱放在output_dir底下
 stability_score_thresh: 0.97 # 不知道幹啥的參數，反正只有sam用到，fastsam沒用到
 fat_mask: 50  # segment 後的遮罩經過多大pixel捲機的擴大，融入背景資訊看能否幫助grasp pose
 # python match_anything.py --config MA_config.yaml
